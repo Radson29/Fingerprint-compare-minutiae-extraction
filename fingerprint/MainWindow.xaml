@@ -1,0 +1,82 @@
+﻿<Window x:Class="fingerprint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:fingerprint"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="701" Width="1587" Background="Azure">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="456*"/>
+            <ColumnDefinition Width="585*"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" >
+            <Menu DockPanel.Dock="Top" IsMainMenu="True" >
+                <MenuItem Background="LightGray" Header="_Obraz" >
+                    <MenuItem Background="LightGray" Header="_Wczytaj z pliku" Click="ZaladujZPliku"/>
+                    <Separator/>
+                    <MenuItem Background="LightGray" Header="_Wczytaj z pliku2" Click="ZaladujZPliku2"/>
+                    <Separator/>
+                    <MenuItem Background="LightGray" Header="_Zapisz do pliku" Click="ZapiszDoPliku"/>
+
+                </MenuItem>
+
+            </Menu>
+        </DockPanel>
+
+
+        <Border x:Name="left_border" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="10,10,434,10" Grid.ColumnSpan="3">
+            <Image Name="obrazek" Margin="10,10,3,10"/>
+        </Border>
+
+        <Border x:Name="right_border" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="3" Margin="201,10,44,10">
+            <Image Name="obrazek_2" Margin="28,10,0,10" HorizontalAlignment="Left" Width="308"/>
+        </Border>
+        <Border x:Name="right_border_2" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="4" Margin="10,10,431,10">
+            <Image Name="obrazek_3" Margin="9,10,0,10" HorizontalAlignment="Left" Width="306"/>
+        </Border>
+
+        <Border x:Name="right_border_3" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="4" Margin="398,10,31,10">
+            <Image Name="obrazek_4" Margin="9,10,0,10" HorizontalAlignment="Left" Width="324"/>
+        </Border>
+
+        <Button Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Click="BinaryzacjaISzkieletyzacja" Margin="326,5,431,5">binaryzacja i szkieletyzacja</Button>
+        <Button Grid.Row="3" Grid.Column="3" x:Name="rozgalezienia_przycisk" IsEnabled="False" Click="Rozwidlenia" Grid.ColumnSpan="2"  Margin="326,5,431,5">Szukanie minucji</Button>
+
+        <Button Grid.Row="6" Grid.Column="3" x:Name="reset" Grid.ColumnSpan="2" Margin="382,17,543,20" Click="Reset_Click">reset</Button>
+
+
+
+
+        <Label Name="label1" Grid.Column="1" Content="Pojedynczych punktów(różowe): " HorizontalAlignment="Left" Margin="10,27,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.RowSpan="2" RenderTransformOrigin="0.684,1.69" Grid.ColumnSpan="3" Width="221"/>
+        <Label Name="label2" Grid.Column="1" Content="Zakończenia krawędzi(pomarańczowy):" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="264" RenderTransformOrigin="0.675,0.498" Margin="10,0,0,0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+        <Label Name="label3" Grid.Column="1" Content="Rozwidlenia(zielony):" HorizontalAlignment="Left" Margin="10,31,0,0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="0.869,0.653" Grid.ColumnSpan="3" Width="169"/>
+        <Label Name="label4" Grid.Column="1" Content="Skrzyżowania(niebieski):" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" VerticalAlignment="Top" Width="169" Grid.ColumnSpan="3"/>
+        <Rectangle HorizontalAlignment="Left" Height="164" Margin="5,10,0,0" Grid.Row="2" Stroke="Red" VerticalAlignment="Top" Width="340" Grid.RowSpan="6" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button Grid.Column="3" Content="Porównaj odciski(score)" HorizontalAlignment="Left" Margin="521,3,0,0" Grid.Row="7" VerticalAlignment="Top" Height="20" Width="172" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.Column="4" HorizontalAlignment="Left" Height="149"  Margin="398,4,0,0" Grid.RowSpan="6" Grid.Row="2" Stroke="Red" VerticalAlignment="Top" Width="348"/>
+        <Label Name="labell1" Grid.Column="4" Content="Pojedynczych punktow(różowe): " HorizontalAlignment="Left" Margin="408,10,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="-0.371,0.233" Grid.RowSpan="2"/>
+        <Label Name="labell2" Grid.Column="4" Content="Zakończenia krawędzi(pomarańczowe):" HorizontalAlignment="Left" Margin="408,10,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.RowSpan="4"/>
+        <Label Name="labell3" Grid.Column="4" Content="Rozwidlenia(zielony):" HorizontalAlignment="Left" Margin="408,11,0,0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="-0.31,-0.087"/>
+        <Label  Name="labell4" Grid.Column="4" Content="Skrzyżowania(niebieski):" HorizontalAlignment="Left" Margin="408,39,0,0" Grid.Row="6" VerticalAlignment="Top" Height="26" Grid.RowSpan="2"/>
+        <Label Grid.Column="3" Content="Algorytm pokazuje wyniki w przedziale 0-100,&#xD;&#xA; im wynik jest wyzszy tym odciski są bardziej podobne do siebie" HorizontalAlignment="Left" Margin="173,39,0,0" Grid.Row="6" VerticalAlignment="Top" Width="385" Height="41" Grid.RowSpan="2"/>
+
+    </Grid>
+
+</Window>

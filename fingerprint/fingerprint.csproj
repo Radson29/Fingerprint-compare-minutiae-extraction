@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FR.Core">
+      <HintPath>..\Fingerprint References\FR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FR.MTriplets">
+      <HintPath>..\Fingerprint References\FR.MTriplets.dll</HintPath>
+    </Reference>
+    <Reference Include="FR.Parziale2004">
+      <HintPath>..\Fingerprint References\FR.Parziale2004.dll</HintPath>
+    </Reference>
+    <Reference Include="FR.Qi2005">
+      <HintPath>..\Fingerprint References\FR.Qi2005.dll</HintPath>
+    </Reference>
+    <Reference Include="FR.Ratha1995">
+      <HintPath>..\Fingerprint References\FR.Ratha1995.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessingTools">
+      <HintPath>..\Fingerprint References\ImageProcessingTools.dll</HintPath>
+    </Reference>
+    <Reference Include="ROC">
+      <HintPath>..\Fingerprint References\ROC.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
